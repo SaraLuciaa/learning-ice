@@ -1,0 +1,12 @@
+<state>
+  <timestamp value='1747964378129' />
+  <sourceSet name='default'>
+    <source name='/home/sara-lucia/Desktop/ice-storm/Printer.ice'>
+      <file name='/home/sara-lucia/Desktop/ice-storm/server/build/generated-src/Demo/Printer.java' />
+      <file name='/home/sara-lucia/Desktop/ice-storm/server/build/generated-src/Demo/PrinterPrx.java' />
+      <file name='/home/sara-lucia/Desktop/ice-storm/server/build/generated-src/Demo/_PrinterPrxI.java' />
+    </source>
+    <arg value='/usr/bin/slice2java' />
+    <arg value='-I/usr/share/ice/slice' />
+  </sourceSet>
+</state>
