@@ -1,7 +1,7 @@
 public class Publisher {
     public static void main(String[] args) {
         try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args)) {
-            com.zeroc.Ice.ObjectPrx obj = communicator.stringToProxy("IceStorm/TopicManager:tcp -h 0.0.0.0 -p 9999");
+            com.zeroc.Ice.ObjectPrx obj = communicator.stringToProxy("IceStorm/TopicManager:tcp -h localhost -p 10000");
             com.zeroc.IceStorm.TopicManagerPrx topicManager = com.zeroc.IceStorm.TopicManagerPrx.checkedCast(obj);
             com.zeroc.IceStorm.TopicPrx topic = null;
             while(topic == null)
@@ -26,10 +26,10 @@ public class Publisher {
             com.zeroc.Ice.ObjectPrx pub = topic.getPublisher().ice_oneway();
             Demo.MonitorPrx monitor = Demo.MonitorPrx.uncheckedCast(pub);
             while(true)
-            {
-                Demo.Measurement m = getMeasurement();
-                monitor.report(m);
-                Thread.sleep(10000);
+                {
+                    Demo.Measurement m = getMeasurement();
+                    monitor.report(m);
+                    Thread.sleep(10000);
             }
         }catch (Exception e) {
             e.printStackTrace();

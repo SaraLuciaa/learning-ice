@@ -1,7 +1,7 @@
 public class Suscriber {
     public static void main(String[] args) {
-        try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args)) {
-            com.zeroc.Ice.ObjectPrx obj = communicator.stringToProxy("IceStorm/TopicManager:tcp -h 0.0.0.0 -p 9999");
+        try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "config.sub")) {
+            com.zeroc.Ice.ObjectPrx obj = communicator.stringToProxy("IceStorm/TopicManager:tcp -h localhost -p 10000");
             com.zeroc.IceStorm.TopicManagerPrx topicManager = com.zeroc.IceStorm.TopicManagerPrx.checkedCast(obj);
         
             com.zeroc.Ice.ObjectAdapter adapter = communicator.createObjectAdapter("MonitorAdapter");
