@@ -14,7 +14,7 @@ subprojects {
     //
     slice {
         java {
-            files = [file("../Printer.ice")]
+            files = [file("../Monitor.ice")]
         }
     }
  
@@ -30,6 +30,7 @@ subprojects {
     //
     dependencies {
         implementation 'com.zeroc:ice:3.7.10'
+        implementation 'com.zeroc:icestorm:3.7.9'
     }
  
     //
