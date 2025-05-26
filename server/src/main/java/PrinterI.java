@@ -1,17 +1,13 @@
 import java.util.HashSet;
 import java.util.Set;
 
+import Demo.AckServicePrx;
+
 public class PrinterI implements Demo.Printer
 {
-    private final Demo.AckServicePrx ackProxy;
     private final Set<String> seen = new HashSet<>();
 
-    public PrinterI(Demo.AckServicePrx ackProxy)
-    {
-        this.ackProxy = ackProxy;
-    }
-
-    public void printString(Demo.Message msg, com.zeroc.Ice.Current current)
+    public void printString(Demo.Message msg, AckServicePrx ackProxy, com.zeroc.Ice.Current current)
     {
         if (seen.contains(msg.messageId)) return;
 

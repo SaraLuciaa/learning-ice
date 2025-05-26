@@ -5,13 +5,12 @@ module Demo
         string text;
     };
 
-    interface Printer
-    {
-        void printString(Message m);
-    }
-
     interface AckService {
         void confirm(string messageId);
-        bool isAcked(string messageId);
+    }
+
+    interface Printer
+    {
+        void printString(Message m, AckService* ack);
     }
 }

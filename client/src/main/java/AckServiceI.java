@@ -5,12 +5,13 @@ public class AckServiceI implements Demo.AckService{
 
     @Override
     public void confirm(String messageId, com.zeroc.Ice.Current current) {
-        System.out.println("✅ ACK recibido: " + messageId);
+        System.out.println("ACK recibido: " + messageId);
         acks.put(messageId, true);
     }
 
-    @Override
-    public boolean isAcked(String messageId, com.zeroc.Ice.Current current) {
+    public boolean isAcked(String messageId) {
         return acks.getOrDefault(messageId, false);
     }
+
+    // send message con hilo 
 }
