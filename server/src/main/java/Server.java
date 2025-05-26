@@ -5,7 +5,7 @@ public class Server
     {
         try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args))
         {
-            Demo.AckServicePrx ack = Demo.AckServicePrx.checkedCast( 
+            Demo.AckServicePrx ack = Demo.AckServicePrx.uncheckedCast( 
                 communicator.stringToProxy("AckService:default -h localhost -p 10010"));;
             // int retries = 5;
 
