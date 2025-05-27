@@ -1,0 +1,106 @@
+May 26, 2025 8:55:21 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:23 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:25 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:25 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:27 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:27 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:28 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:29 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:29 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:30 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:31 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:31 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:31 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:32 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:33 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:33 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:33 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:34 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:35 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:35 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:35 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:36 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:37 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:37 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:37 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:38 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:39 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:39 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:39 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:40 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:41 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:41 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:41 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:42 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:43 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:43 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:43 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:44 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:45 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:45 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:45 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:46 PM MessageSender run
+WARNING: Retrying after send failure (ID: 3ed9d7da-a544-430b-aed2-bb7878305c63): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:47 PM MessageSender run
+WARNING: Retrying after send failure (ID: 28c374d0-e209-432f-b020-7af8017aaa6c): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:47 PM MessageSender run
+WARNING: Retrying after send failure (ID: 94338b94-eb66-4a2b-98c1-80baef5d0967): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:47 PM MessageSender run
+WARNING: Retrying after send failure (ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e): java.net.ConnectException: Connection refused
+May 26, 2025 8:55:48 PM MessageSender run
+INFO: Message sent: "Soy Lulu" [ID: 3ed9d7da-a544-430b-aed2-bb7878305c63]
+May 26, 2025 8:55:49 PM MessageSender run
+INFO: Message sent: "La patita " [ID: 28c374d0-e209-432f-b020-7af8017aaa6c]
+May 26, 2025 8:55:49 PM MessageSender run
+INFO: Message sent: "Como estas" [ID: 94338b94-eb66-4a2b-98c1-80baef5d0967]
+May 26, 2025 8:55:49 PM MessageSender run
+INFO: ACK received for message ID: 3ed9d7da-a544-430b-aed2-bb7878305c63
+May 26, 2025 8:55:49 PM MessageSender run
+INFO: Message sent: "Hola" [ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e]
+May 26, 2025 8:55:50 PM MessageSender run
+INFO: ACK received for message ID: 28c374d0-e209-432f-b020-7af8017aaa6c
+May 26, 2025 8:55:50 PM MessageSender run
+INFO: ACK received for message ID: 94338b94-eb66-4a2b-98c1-80baef5d0967
+May 26, 2025 8:55:50 PM MessageSender run
+INFO: ACK received for message ID: 2c843e63-6dfb-426b-99bd-a47fc12fb36e

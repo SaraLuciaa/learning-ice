@@ -1,3 +1,5 @@
+import java.util.logging.Logger;
+
 public class MessageSender extends Thread {
     private final String msgId;
     private final String text;
@@ -5,6 +7,7 @@ public class MessageSender extends Thread {
     private final Demo.AckServicePrx ackServicePrx;
     private final AckServiceI ackService;
     private final MessageStorage storage;
+    private final Logger log = AppLogger.get();
 
     public MessageSender(String msgId, String text, Demo.PrinterPrx printer,
                          Demo.AckServicePrx ackServicePrx,
@@ -21,28 +24,28 @@ public class MessageSender extends Thread {
     @Override
     public void run() {
         Demo.Message msg = new Demo.Message(msgId, text);
-
         storage.add(msgId, text);
 
         while (true) {
             try {
                 printer.printString(msg, ackServicePrx);
-                System.out.println("Sent: " + msg.text + " (id=" + msgId + ")");
+                log.info("Message sent: \"" + msg.text + "\" [ID: " + msgId + "]");
                 Thread.sleep(1000);
 
                 if (ackService.isAcked(msgId)) {
-                    System.out.println("✔ ACK recibido para mensaje: " + msgId);
+                    log.info("ACK received for message ID: " + msgId);
                     storage.remove(msgId);
                     break;
                 } else {
-                    System.out.println("Esperando ACK para: " + msgId);
+                    log.fine("Waiting for ACK for ID: " + msgId);
                 }
             } catch (Exception e) {
-                System.err.println("Error enviando mensaje " + msgId + ": " + e.getMessage());
+                log.warning("Retrying after send failure (ID: " + msgId + "): " + e.getMessage());
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
+                    log.warning("Sender thread interrupted: " + ex.getMessage());
                     break;
                 }
             }

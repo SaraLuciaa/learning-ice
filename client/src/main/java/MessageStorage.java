@@ -1,10 +1,12 @@
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class MessageStorage {
     private static final File FILE = new File("pending_messages.json");
     private final Map<String, String> pendingMessages = new HashMap<>();
+    private final Logger log = AppLogger.get();
 
     public MessageStorage() {
         load();
@@ -33,7 +35,7 @@ public class MessageStorage {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Error loading pending messages: " + e.getMessage());
+            log.severe("Error loading pending messages: " + e.getMessage());
         }
     }
 
@@ -48,7 +50,7 @@ public class MessageStorage {
             }
             writer.write("}\n");
         } catch (IOException e) {
-            System.err.println("Error saving messages: " + e.getMessage());
+            log.severe("Error loading/saving message: " + e.getMessage());
         }
     }
 
