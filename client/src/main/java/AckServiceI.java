@@ -12,6 +12,4 @@ public class AckServiceI implements Demo.AckService{
     public boolean isAcked(String messageId) {
         return acks.getOrDefault(messageId, false);
     }
-
-    // send message con hilo 
 }
