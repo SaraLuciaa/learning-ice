@@ -64,7 +64,7 @@ public class MessageSender extends Thread {
                 Thread.sleep(1000);
 
                 if (ackService.isAcked(msg.id)) {
-                    log.info("ACK received: " + msg.id);
+                    log.info("ACK received for message ID: " + msg.id);
                     synchronized (messageQueue) {
                         messageQueue.remove(msg);
                     }
@@ -75,7 +75,7 @@ public class MessageSender extends Thread {
                 }
 
             } catch (com.zeroc.Ice.ConnectionRefusedException e) {
-                log.warning("Connection refused. Retrying...");
+                log.warning("Retrying after send failure");
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException ex) {
