@@ -1,11 +1,13 @@
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
+
+import Demo.Message;
 
 public class MessageStorage {
     private static final File FILE = new File("pending_messages.json");
-    private final Map<String, String> pendingMessages = new HashMap<>();
+    private final ArrayList<Message> pendingMessages = new ArrayList<>();
     private final Logger log = AppLogger.get();
 
     public MessageStorage() {
@@ -23,15 +25,25 @@ public class MessageStorage {
             }
 
             String content = json.toString()
-                    .replaceAll("^\\{", "")   // quita {
-                    .replaceAll("}$", "");    // quita }
+                    .replaceAll("^\\[", "")
+                    .replaceAll("]$", "");    
 
-            for (String entry : content.split(",")) {
+            for (String entry : content.split("},")) {
                 if (!entry.trim().isEmpty()) {
-                    String[] parts = entry.split(":", 2);
-                    String key = unquote(parts[0].trim());
-                    String value = unquote(parts[1].trim());
-                    pendingMessages.put(key, value);
+                    String cleanedEntry = entry.endsWith("}") ? entry : entry + "}";
+                    String[] parts = cleanedEntry.replaceAll("[{}\"]", "").split(",");
+                    String id = null, text = null;
+                    for (String part : parts) {
+                        String[] keyValue = part.split(":", 2);
+                        if (keyValue[0].trim().equals("id")) {
+                            id = keyValue[1].trim();
+                        } else if (keyValue[0].trim().equals("text")) {
+                            text = keyValue[1].trim();
+                        }
+                    }
+                    if (id != null && text != null) {
+                        pendingMessages.add(new Message(id, text));
+                    }
                 }
             }
         } catch (IOException e) {
@@ -41,38 +53,34 @@ public class MessageStorage {
 
     private void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE))) {
-            writer.write("{\n");
+            writer.write("[\n");
             int i = 0;
-            for (Map.Entry<String, String> entry : pendingMessages.entrySet()) {
-                writer.write("  \"" + escape(entry.getKey()) + "\": \"" + escape(entry.getValue()) + "\"");
+            for (Message msg : pendingMessages) {
+                writer.write("  {\"id\": \"" + escape(msg.id) + "\", \"text\": \"" + escape(msg.text) + "\"}");
                 if (i++ < pendingMessages.size() - 1) writer.write(",");
                 writer.write("\n");
             }
-            writer.write("}\n");
+            writer.write("]\n");
         } catch (IOException e) {
-            log.severe("Error loading/saving message: " + e.getMessage());
+            log.severe("Error saving messages: " + e.getMessage());
         }
-    }
-
-    private String unquote(String s) {
-        return s.replaceAll("^\"|\"$", "").replace("\\\"", "\"");
     }
 
     private String escape(String s) {
         return s.replace("\"", "\\\"");
     }
 
-    public synchronized void add(String id, String text) {
-        pendingMessages.put(id, text);
+    public synchronized void add(Message msg) {
+        pendingMessages.add(msg);
         save();
     }
 
     public synchronized void remove(String id) {
-        pendingMessages.remove(id);
+        pendingMessages.removeIf(msg -> msg.id.equals(id));
         save();
     }
 
-    public Map<String, String> getAll() {
-        return new HashMap<>(pendingMessages);
+    public ArrayList<Message> getAll() {
+        return new ArrayList<>(pendingMessages);
     }
 }

@@ -1,54 +1,92 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
+import Demo.AckServicePrx;
+import Demo.Message;
+import Demo.PrinterPrx;
+
 public class MessageSender extends Thread {
-    private final String msgId;
-    private final String text;
-    private final Demo.PrinterPrx printer;
-    private final Demo.AckServicePrx ackServicePrx;
+    private final List<Message> messageQueue = new ArrayList<>();
+    private final PrinterPrx printer;
+    private final AckServicePrx ackServicePrx;
     private final AckServiceI ackService;
     private final MessageStorage storage;
     private final Logger log = AppLogger.get();
 
-    public MessageSender(String msgId, String text, Demo.PrinterPrx printer,
-                         Demo.AckServicePrx ackServicePrx,
-                         AckServiceI ackService,
-                         MessageStorage storage) {
-        this.msgId = msgId;
-        this.text = text;
+    public MessageSender(PrinterPrx printer, AckServicePrx ackServicePrx, AckServiceI ackService, MessageStorage storage) {
         this.printer = printer;
         this.ackServicePrx = ackServicePrx;
         this.ackService = ackService;
         this.storage = storage;
+        synchronized (messageQueue) {
+            messageQueue.addAll(storage.getAll());
+        }
+    }
+
+    public void addMessage(Message msg) {
+        synchronized (messageQueue) {
+            messageQueue.add(msg);
+            storage.add(msg);
+            messageQueue.notifyAll(); 
+        }
+        log.info("Message added to queue: \"" + msg.text + "\" [ID: " + msg.id + "]");
     }
 
     @Override
     public void run() {
-        Demo.Message msg = new Demo.Message(msgId, text);
-        storage.add(msgId, text);
+        while (!Thread.currentThread().isInterrupted()) {
+            Message msg = null;
+            synchronized (messageQueue) {
+                while (messageQueue.isEmpty()) {
+                    try {
+                        messageQueue.wait(); 
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
+                }
+                msg = messageQueue.get(0);
+            }
 
-        while (true) {
+            if (msg != null) {
+                sendMessage(msg);
+            }
+        }
+    }
+
+    private void sendMessage(Message msg) {
+        int attempts = 0;
+        while (attempts < 10 && !Thread.currentThread().isInterrupted()) {
             try {
                 printer.printString(msg, ackServicePrx);
-                log.info("Message sent: \"" + msg.text + "\" [ID: " + msgId + "]");
+                log.info("Message sended: \"" + msg.text + "\" [ID: " + msg.id + "]");
                 Thread.sleep(1000);
 
-                if (ackService.isAcked(msgId)) {
-                    log.info("ACK received for message ID: " + msgId);
-                    storage.remove(msgId);
+                if (ackService.isAcked(msg.id)) {
+                    log.info("ACK received: " + msg.id);
+                    synchronized (messageQueue) {
+                        messageQueue.remove(msg);
+                    }
+                    storage.remove(msg.id);
                     break;
                 } else {
-                    log.fine("Waiting for ACK for ID: " + msgId);
+                    log.fine("Waiting ACK: " + msg.id);
                 }
-            } catch (Exception e) {
-                log.warning("Retrying after send failure (ID: " + msgId + "): " + e.getMessage());
+
+            } catch (com.zeroc.Ice.ConnectionRefusedException e) {
+                log.warning("Connection refused. Retrying...");
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
-                    log.warning("Sender thread interrupted: " + ex.getMessage());
-                    break;
+                    return;
                 }
+            } catch (Exception e) {
+                log.severe("Error sending message: " + e.getMessage());
+                return;
             }
+            attempts++;
         }
     }
 }

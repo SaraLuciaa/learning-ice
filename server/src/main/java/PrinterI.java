@@ -9,11 +9,11 @@ public class PrinterI implements Demo.Printer
 
     public void printString(Demo.Message msg, AckServicePrx ackProxy, com.zeroc.Ice.Current current)
     {
-        if (seen.contains(msg.messageId)) return;
+        if (seen.contains(msg.id)) return;
 
         System.out.println("Recibido: " + msg.text);
-        seen.add(msg.messageId);
+        seen.add(msg.id);
 
-        ackProxy.confirm(msg.messageId);
+        ackProxy.confirm(msg.id);
     }
 }

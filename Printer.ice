@@ -1,7 +1,7 @@
 module Demo
 {
     struct Message {
-        string messageId;
+        string id;
         string text;
     };
 
